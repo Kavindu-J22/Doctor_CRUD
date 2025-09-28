@@ -29,18 +29,50 @@ public class DoctorController {
      */
     @GetMapping("/")
     public String redirectToList() {
-        return "redirect:/doctors/list";
+        try {
+            return "redirect:/doctors/list";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/error";
+        }
     }
 
     /**
      * Show all doctors
      */
-    @GetMapping("/list")
+    @GetMapping({ "/list", "" }) // Handle both /doctors/list and /doctors
     public String listDoctors(Model model) {
-        List<Doctor> doctors = doctorService.getAllDoctors();
-        model.addAttribute("doctors", doctors);
-        model.addAttribute("totalCount", doctors.size());
-        return "doctors/list";
+        try {
+            // First, try to get doctors from service
+            List<Doctor> doctors = doctorService.getAllDoctors();
+
+            // Log for debugging
+            System.out.println("Retrieved " + doctors.size() + " doctors from database");
+
+            // Add attributes to model
+            model.addAttribute("doctors", doctors != null ? doctors : new java.util.ArrayList<>());
+            model.addAttribute("totalCount", doctors != null ? doctors.size() : 0);
+
+            // Return template name
+            return "doctors/list";
+
+        } catch (Exception e) {
+            // Log the full exception for debugging
+            System.err.println("Error in listDoctors method:");
+            e.printStackTrace();
+
+            String errorMessage = "Error loading doctors list: ";
+            if (e.getMessage() != null) {
+                errorMessage += e.getMessage();
+            } else {
+                errorMessage += "Unknown error occurred. Please check the server logs.";
+            }
+
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("doctors", new java.util.ArrayList<>());
+            model.addAttribute("totalCount", 0);
+            return "doctors/list";
+        }
     }
 
     /**
@@ -163,6 +195,96 @@ public class DoctorController {
             redirectAttributes.addFlashAttribute("errorMessage", "Error deleting doctor: " + e.getMessage());
         }
         return "redirect:/doctors/list";
+    }
+
+    /**
+     * Test page
+     */
+    @GetMapping("/test")
+    public String testPage() {
+        return "test";
+    }
+
+    /**
+     * Simple test endpoint to check if service works
+     */
+    @GetMapping("/test-service")
+    @ResponseBody
+    public String testService() {
+        try {
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            return "Service works! Found " + doctors.size() + " doctors.";
+        } catch (Exception e) {
+            return "Service error: " + e.getMessage();
+        }
+    }
+
+    /**
+     * Simple list page for testing
+     */
+    @GetMapping("/list-simple")
+    public String listDoctorsSimple(Model model) {
+        try {
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            model.addAttribute("doctors", doctors);
+            model.addAttribute("totalCount", doctors.size());
+            return "doctors/list-simple";
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("errorMessage", "Error: " + e.getMessage());
+            model.addAttribute("doctors", new java.util.ArrayList<>());
+            model.addAttribute("totalCount", 0);
+            return "doctors/list-simple";
+        }
+    }
+
+    /**
+     * Debug endpoint to test database connection
+     */
+    @GetMapping("/debug")
+    @ResponseBody
+    public String debugDoctors() {
+        try {
+            List<Doctor> doctors = doctorService.getAllDoctors();
+            StringBuilder sb = new StringBuilder();
+            sb.append("<h3>Database Debug Information</h3>");
+            sb.append("<p><strong>Total doctors:</strong> ").append(doctors.size()).append("</p>");
+
+            if (doctors.isEmpty()) {
+                sb.append("<p>No doctors found in database.</p>");
+            } else {
+                sb.append("<table border='1' style='border-collapse: collapse; width: 100%;'>");
+                sb.append("<tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Specialization</th></tr>");
+                for (Doctor doctor : doctors) {
+                    sb.append("<tr>")
+                            .append("<td>").append(doctor.getId()).append("</td>")
+                            .append("<td>").append(doctor.getFirstName()).append(" ").append(doctor.getLastName())
+                            .append("</td>")
+                            .append("<td>").append(doctor.getEmail()).append("</td>")
+                            .append("<td>").append(doctor.getPhoneNumber()).append("</td>")
+                            .append("<td>").append(doctor.getSpecialization()).append("</td>")
+                            .append("</tr>");
+                }
+                sb.append("</table>");
+            }
+
+            sb.append("<br><a href='/doctors/list'>Go to Doctors List</a>");
+            sb.append(" | <a href='/doctors/test'>Go to Test Page</a>");
+
+            return sb.toString();
+        } catch (Exception e) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("<h3>Error occurred:</h3>");
+            sb.append("<p><strong>Message:</strong> ").append(e.getMessage()).append("</p>");
+            sb.append("<p><strong>Type:</strong> ").append(e.getClass().getSimpleName()).append("</p>");
+            sb.append("<h4>Stack Trace:</h4><pre>");
+            for (StackTraceElement element : e.getStackTrace()) {
+                sb.append(element.toString()).append("\n");
+            }
+            sb.append("</pre>");
+            sb.append("<br><a href='/doctors/test'>Go to Test Page</a>");
+            return sb.toString();
+        }
     }
 
     /**

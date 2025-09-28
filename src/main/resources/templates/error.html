@@ -109,7 +109,7 @@
                 </div>
                 
                 <!-- Debug Information (only in development) -->
-                <div th:if="${#strings.contains(#request.serverName, 'localhost')}" class="card mt-4">
+                <div th:if="${errorDetails != null and errorDetails != ''}" class="card mt-4">
                     <div class="card-header bg-dark text-white">
                         <h6 class="mb-0"><i class="fas fa-bug me-2"></i>Debug Information</h6>
                     </div>

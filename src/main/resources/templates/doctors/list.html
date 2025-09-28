@@ -129,14 +129,14 @@
                         <tbody>
                             <tr th:each="doctor : ${doctors}">
                                 <td>
-                                    <strong th:text="${doctor.fullName}">Dr. John Doe</strong>
+                                    <strong th:text="${doctor.firstName} + ' ' + ${doctor.lastName}">Dr. John Doe</strong>
                                 </td>
                                 <td th:text="${doctor.email}">john.doe@email.com</td>
                                 <td th:text="${doctor.phoneNumber}">+1234567890</td>
                                 <td>
                                     <span class="badge bg-info" th:text="${doctor.specialization}">Cardiology</span>
                                 </td>
-                                <td th:text="${doctor.yearsOfExperience + ' years'}">5 years</td>
+                                <td th:text="${doctor.yearsOfExperience} + ' years'">5 years</td>
                                 <td th:text="${doctor.hospitalClinic}">City Hospital</td>
                                 <td>
                                     <div class="btn-group" role="group">
@@ -148,9 +148,9 @@
                                            class="btn btn-sm btn-outline-warning" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a th:href="@{/doctors/delete/{id}(id=${doctor.id})}" 
+                                        <a th:href="@{/doctors/delete/{id}(id=${doctor.id})}"
                                            class="btn btn-sm btn-outline-danger" title="Delete"
-                                           th:onclick="'return confirmDelete(\'' + ${doctor.fullName} + '\')'">
+                                           onclick="return confirm('Are you sure you want to delete this doctor?')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </div>
