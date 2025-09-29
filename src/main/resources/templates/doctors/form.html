@@ -80,7 +80,7 @@
                                 <i class="fas fa-user-md"></i>
                             </div>
                             <div>
-                                <div class="stat-value text-dark" th:text="${doctor.id == null ? 'New' : 'Edit'}">New</div>
+                                <div class="stat-value stat-record-text" th:text="${doctor.id == null ? 'New' : 'Edit'}">New</div>
                                 <div class="stat-label text-light">Doctor Record</div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                                     <i class="fas fa-user-md text-primary me-2"></i>
                                     Doctor Information
                                 </h5>
-                                <small class="text-muted">All fields marked with * are required</small>
+                                <small class="form-required-text">All fields marked with * are required</small>
                             </div>
                             <div class="form-progress">
                                 <div class="progress" style="width: 150px; height: 8px;">
@@ -127,7 +127,7 @@
                                 <div class="row">
                                     <!-- First Name -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="firstName" class="form-label">
+                                        <label for="firstName" class="form-label form-field-label">
                                             <i class="fas fa-user me-1"></i>First Name <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -145,7 +145,7 @@
 
                                     <!-- Last Name -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="lastName" class="form-label">
+                                        <label for="lastName" class="form-label form-field-label">
                                             <i class="fas fa-user me-1"></i>Last Name <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -174,7 +174,7 @@
                                 <div class="row">
                                     <!-- Email -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">
+                                        <label for="email" class="form-label form-field-label">
                                             <i class="fas fa-envelope me-1"></i>Email <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -192,7 +192,7 @@
 
                                     <!-- Phone Number -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="phoneNumber" class="form-label">
+                                        <label for="phoneNumber" class="form-label form-field-label">
                                             <i class="fas fa-phone me-1"></i>Phone Number <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -225,7 +225,7 @@
                                 <div class="row">
                                     <!-- Specialization -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="specialization" class="form-label">
+                                        <label for="specialization" class="form-label form-field-label">
                                             <i class="fas fa-stethoscope me-1"></i>Specialization <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -256,7 +256,7 @@
 
                                     <!-- Years of Experience -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="yearsOfExperience" class="form-label">
+                                        <label for="yearsOfExperience" class="form-label form-field-label">
                                             <i class="fas fa-calendar-alt me-1"></i>Years of Experience <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -277,7 +277,7 @@
                                 <div class="row">
                                     <!-- Hospital/Clinic -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="hospitalClinic" class="form-label">
+                                        <label for="hospitalClinic" class="form-label form-field-label">
                                             <i class="fas fa-hospital me-1"></i>Hospital/Clinic <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -295,7 +295,7 @@
 
                                     <!-- Date of Birth -->
                                     <div class="col-md-6 mb-3">
-                                        <label for="dateOfBirth" class="form-label">
+                                        <label for="dateOfBirth" class="form-label form-field-label">
                                             <i class="fas fa-birthday-cake me-1"></i>Date of Birth <span class="text-danger">*</span>
                                         </label>
                                         <div class="input-group">
@@ -323,7 +323,7 @@
 
                                 <!-- Address -->
                                 <div class="mb-4">
-                                    <label for="address" class="form-label">
+                                    <label for="address" class="form-label form-field-label">
                                         <i class="fas fa-map-marker-alt me-1"></i>Address <small class="text-muted">(Optional)</small>
                                     </label>
                                     <div class="input-group">

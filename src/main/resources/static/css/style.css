@@ -1455,6 +1455,32 @@ footer p {
   color: #e5e7eb !important;
 }
 
+/* Specific dark text classes for visibility */
+.search-filter-title {
+  color: #1f2937 !important;
+  font-weight: 700 !important;
+}
+
+.filter-help-text {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+.form-field-label {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
+.form-required-text {
+  color: #374151 !important;
+  font-weight: 500 !important;
+}
+
+.stat-record-text {
+  color: #1f2937 !important;
+  font-weight: 600 !important;
+}
+
 /* Footer Styles */
 footer {
   margin-top: auto;
