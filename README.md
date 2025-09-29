@@ -22,6 +22,7 @@ A comprehensive Java Spring Boot web application for managing doctor registratio
 ## Doctor Entity Fields
 
 The system manages doctors with the following information:
+
 1. **First Name** (Required)
 2. **Last Name** (Required)
 3. **Email** (Required, Unique)
@@ -95,25 +96,30 @@ The system manages doctors with the following information:
 ## Usage Guide
 
 ### Adding a New Doctor
+
 1. Click "Add New Doctor" button
-2. Fill in all required fields (marked with *)
+2. Fill in all required fields (marked with \*)
 3. Click "Add Doctor" to save
 
 ### Viewing Doctor Details
+
 1. From the doctors list, click the "View" (eye icon) button
 2. View complete doctor information
 3. Use quick action buttons for email/phone contact
 
 ### Editing a Doctor
+
 1. Click the "Edit" (pencil icon) button from the list or detail view
 2. Modify the information
 3. Click "Update Doctor" to save changes
 
 ### Deleting a Doctor
+
 1. Click the "Delete" (trash icon) button
 2. Confirm the deletion in the popup dialog
 
 ### Searching Doctors
+
 1. Use the search form at the top of the doctors list
 2. Choose search type: Name, Specialization, or Hospital/Clinic
 3. Enter search term and click "Search"
@@ -174,6 +180,7 @@ server.port=8080
 If you encounter a whitelabel error page when trying to save a doctor, follow these steps:
 
 #### Quick Diagnostic Tools
+
 1. **Health Check**: Visit http://localhost:8080/health
 2. **Database Test**: Visit http://localhost:8080/test-db
 3. **Check Console**: Look for error messages in the application console
@@ -181,17 +188,20 @@ If you encounter a whitelabel error page when trying to save a doctor, follow th
 #### Common Causes and Solutions
 
 **1. Database Connection Issues (Most Common)**
+
 - Ensure MySQL is running: `net start mysql` (Windows) or `sudo systemctl start mysql` (Linux)
 - Verify credentials: username=`root`, password=`Shashini1223@`
 - Test connection manually: `mysql -u root -p`
 
 **2. Form Validation Issues**
+
 - Check all required fields are filled correctly
 - Ensure email is unique (not already used by another doctor)
 - Verify date of birth is in the past
 - Phone number should be 10-15 digits
 
 **3. Database Creation Issues**
+
 - The application auto-creates the database, but if it fails:
   ```sql
   CREATE DATABASE IF NOT EXISTS doctor_registration;
@@ -200,21 +210,25 @@ If you encounter a whitelabel error page when trying to save a doctor, follow th
 ### Other Common Issues
 
 #### Database Connection Issues
+
 - Ensure MySQL is running
 - Verify username/password in `application.properties`
 - Check if port 3306 is available
 
 #### Port Already in Use
+
 - Change the port in `application.properties`:
   ```properties
   server.port=8081
   ```
 
 #### Maven Issues
+
 - Ensure Maven is installed and in PATH
 - Try: `mvn clean install` to resolve dependencies
 
 ### Detailed Troubleshooting
+
 For comprehensive troubleshooting steps, see [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
 ## Features Implemented
@@ -242,6 +256,7 @@ For comprehensive troubleshooting steps, see [TROUBLESHOOTING.md](TROUBLESHOOTIN
 ## Support
 
 For issues or questions, please check:
+
 1. Database connection and credentials
 2. Java and Maven versions
 3. Port availability (8080)

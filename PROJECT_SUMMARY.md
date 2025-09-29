@@ -7,6 +7,7 @@ A complete Java Spring Boot web application for managing doctor registrations wi
 ## ✅ Requirements Fulfilled
 
 ### Core Requirements
+
 - ✅ **Java-based web application** using Spring Boot with Maven
 - ✅ **MySQL database** integration (username: root, password: Shashini1223@)
 - ✅ **Complete CRUD Operations** (Create, Read, Update, Delete)
@@ -18,6 +19,7 @@ A complete Java Spring Boot web application for managing doctor registrations wi
 - ✅ **Delete functionality** with confirmation dialogs
 
 ### Enhanced Features Implemented
+
 - ✅ **Professional responsive UI** with Bootstrap 5
 - ✅ **Form validation** (client-side and server-side)
 - ✅ **Search functionality** (by name, specialization, hospital)
@@ -31,7 +33,7 @@ A complete Java Spring Boot web application for managing doctor registrations wi
 ## 📋 Doctor Entity Fields (9 Fields Total)
 
 1. **First Name** (Required) - Text input with validation
-2. **Last Name** (Required) - Text input with validation  
+2. **Last Name** (Required) - Text input with validation
 3. **Email** (Required, Unique) - Email input with uniqueness check
 4. **Phone Number** (Required) - Tel input with pattern validation
 5. **Specialization** (Required) - Text input for medical specialty
@@ -43,6 +45,7 @@ A complete Java Spring Boot web application for managing doctor registrations wi
 ## 🏗️ Architecture & Technology Stack
 
 ### Backend
+
 - **Java 17** - Programming language
 - **Spring Boot 3.2.0** - Application framework
 - **Spring Data JPA** - Data persistence layer
@@ -52,6 +55,7 @@ A complete Java Spring Boot web application for managing doctor registrations wi
 - **Maven** - Build and dependency management
 
 ### Frontend
+
 - **Thymeleaf** - Server-side templating engine
 - **Bootstrap 5** - CSS framework for responsive design
 - **HTML5** - Markup language
@@ -60,6 +64,7 @@ A complete Java Spring Boot web application for managing doctor registrations wi
 - **Font Awesome** - Icons
 
 ### Database
+
 - **MySQL 8.0** - Primary database
 - **H2** - In-memory database for testing
 
@@ -100,6 +105,7 @@ Doctor_CRUD/
 ## 🔄 CRUD Operations Flow
 
 ### Create (Add Doctor)
+
 1. User clicks "Add New Doctor" button
 2. Form displays with all required fields
 3. Client-side validation on form submission
@@ -108,12 +114,14 @@ Doctor_CRUD/
 6. Error: Stay on form with error messages
 
 ### Read (View Doctors)
+
 1. **List View**: Display all doctors in responsive table
 2. **Detail View**: Click "View" button for complete information
 3. **Search**: Filter by name, specialization, or hospital
 4. **Pagination-ready**: Structure supports future pagination
 
 ### Update (Edit Doctor)
+
 1. Click "Edit" button from list or detail view
 2. Form pre-populated with existing data
 3. Validation on submission (including email uniqueness for other doctors)
@@ -121,6 +129,7 @@ Doctor_CRUD/
 5. Error: Stay on form with error messages
 
 ### Delete (Remove Doctor)
+
 1. Click "Delete" button from list or detail view
 2. JavaScript confirmation dialog
 3. Server-side deletion with error handling
@@ -130,6 +139,7 @@ Doctor_CRUD/
 ## 🎨 User Interface Features
 
 ### Professional Design
+
 - Clean, modern interface with Bootstrap 5
 - Consistent color scheme and typography
 - Professional icons from Font Awesome
@@ -137,6 +147,7 @@ Doctor_CRUD/
 - Mobile-responsive design
 
 ### User Experience
+
 - Intuitive navigation with breadcrumbs
 - Clear success/error messaging
 - Auto-hiding alerts (5-second timeout)
@@ -144,6 +155,7 @@ Doctor_CRUD/
 - Loading states and visual feedback
 
 ### Accessibility
+
 - Semantic HTML structure
 - Proper form labels and validation messages
 - Keyboard navigation support
@@ -153,6 +165,7 @@ Doctor_CRUD/
 ## 🔧 Configuration & Setup
 
 ### Database Configuration
+
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/doctor_registration?createDatabaseIfNotExist=true
 spring.datasource.username=root
@@ -161,6 +174,7 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 ### Application Features
+
 - Auto-database creation
 - SQL logging for debugging
 - Hot reload with DevTools
@@ -170,6 +184,7 @@ spring.jpa.hibernate.ddl-auto=update
 ## 🧪 Testing
 
 ### Unit Tests Included
+
 - Context loading test
 - Complete CRUD operations test
 - Email validation and uniqueness test
@@ -177,6 +192,7 @@ spring.jpa.hibernate.ddl-auto=update
 - H2 in-memory database for testing
 
 ### Manual Testing Checklist
+
 - ✅ Add new doctor with all fields
 - ✅ View doctor list and details
 - ✅ Edit existing doctor information
@@ -190,17 +206,20 @@ spring.jpa.hibernate.ddl-auto=update
 ## 🚀 How to Run
 
 ### Prerequisites
+
 - Java 17+
 - Maven 3.6+
 - MySQL 8.0+
 
 ### Quick Start
+
 1. Ensure MySQL is running with provided credentials
 2. Navigate to project directory
 3. Run: `mvn spring-boot:run`
 4. Access: http://localhost:8080
 
 ### Alternative Methods
+
 - Use `run.bat` on Windows
 - Import into IDE and run `DoctorCrudApplication.java`
 - Build JAR: `mvn clean package` then `java -jar target/doctor-crud-0.0.1-SNAPSHOT.jar`
