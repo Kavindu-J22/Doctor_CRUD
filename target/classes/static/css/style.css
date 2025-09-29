@@ -1481,6 +1481,22 @@ footer p {
   font-weight: 600 !important;
 }
 
+/* Additional specific classes for form elements */
+.doctor-record-label {
+  color: #6b7280 !important;
+  font-weight: 500 !important;
+}
+
+.section-title-black {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}
+
+.form-progress-text {
+  color: #000000 !important;
+  font-weight: 500 !important;
+}
+
 /* Footer Styles */
 footer {
   margin-top: auto;
